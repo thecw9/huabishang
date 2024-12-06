@@ -1,0 +1,53 @@
+@font-face {
+  font-family: simsun;
+  src: url("fonts/simsun.ttc");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: msyh;
+  src: url("fonts/msyh.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+h1 strong,
+h2 strong,
+h3 strong,
+h4 strong,
+h5 strong,
+h6 strong {
+  font-weight: bold;
+}
+
+img {
+  width: 100%;
+  text-align: center;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid black;
+}
+
+th {
+  background-color: #87ceeb; /* 设置表头背景颜色天蓝 */
+}
+
+tr {
+  height: 40px; /* 设置行高为50px */
+}

@@ -1,0 +1,9 @@
+data_source
+auth_servie
+data_service
+ingestion_layer
+single_model_service
+expert_service
+predict_layer
+test_service
+frontend

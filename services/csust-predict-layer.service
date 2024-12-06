@@ -1,0 +1,17 @@
+[Unit]
+Description=CSUST Ingestion Layer
+After=network.target
+
+[Service]
+User=thecw
+Group=thecw
+WorkingDirectory=/home/thecw/Projects/huabishang/predict_layer
+EnvironmentFile=/home/thecw/Projects/huabishang/development.env
+ExecStart=/home/thecw/miniconda3/bin/python3 main.py
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+

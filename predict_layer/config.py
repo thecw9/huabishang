@@ -1,0 +1,4 @@
+import os
+
+SINGLE_MEASURE_MODEL_URL = os.environ["SINGLE_MODEL_URL"]
+EXPERT_MODEL_URL = os.environ["EXPERT_MODEL_URL"]

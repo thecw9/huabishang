@@ -1,0 +1,17 @@
+[Unit]
+Description=CSUST Fusion Model Service
+After=network.target
+
+[Service]
+User=thecw
+Group=thecw
+WorkingDirectory=/home/thecw/Projects/huabishang/fusion_service
+EnvironmentFile=/home/thecw/Projects/huabishang/development.env
+ExecStart=/home/thecw/miniconda3/bin/uvicorn main:app --host 0.0.0.0 --port 48012 --workers 4 --reload
+Restart=always
+RestartSec=5
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
+

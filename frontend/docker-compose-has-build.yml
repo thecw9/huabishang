@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  frontend:
+    image: nginx:stable-alpine
+    container_name: frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./dist:/usr/share/nginx/html
+    restart: always
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

@@ -1,0 +1,11 @@
+import os
+
+MINIO_ENDPOINT = os.environ["MINIO_ENDPOINT"]
+MINIO_ACCESS_KEY = os.environ["MINIO_ACCESS_KEY"]
+MINIO_SECRET_KEY = os.environ["MINIO_SECRET_KEY"]
+BUCKET_NAME = os.environ["BUCKET_NAME"]
+
+MONGODB_HOST = os.environ["MONGODB_HOST"]
+MONGODB_PORT = int(os.environ["MONGODB_PORT"])
+
+DATA_SERVICE_URL = os.environ["DATA_SERVICE_URL"]

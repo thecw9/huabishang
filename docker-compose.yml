@@ -1,0 +1,102 @@
+services:
+  auth_service:
+    build:
+      context: ./auth_service
+      dockerfile: Dockerfile
+    image: csust/auth_service:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./auth_service:/app
+
+  data_service:
+    build:
+      context: ./data_service
+      dockerfile: Dockerfile
+    image: csust/data_service:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./data_service:/app
+
+  push_layer_python:
+    build:
+      context: ./push_layer_python
+      dockerfile: Dockerfile
+    image: csust/push_layer_python:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./push_layer_python:/app
+
+  # push_layer_go:
+  #   build:
+  #     context: ./push_layer_go
+  #     dockerfile: Dockerfile
+  #   image: csust/push_layer_go:${VERSION}
+  #   env_file:
+  #     - ${ENV_FILE}
+  #   network_mode: host
+
+  ingestion_layer:
+    build:
+      context: ./ingestion_layer
+      dockerfile: Dockerfile
+    image: csust/ingestion_layer:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./ingestion_layer:/app
+    depends_on:
+      - data_service
+
+  single_service:
+    build:
+      context: ./single_service
+      dockerfile: Dockerfile
+    image: csust/single_service:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./single_service:/app
+
+  fusion_service:
+    build:
+      context: ./fusion_service
+      dockerfile: Dockerfile
+    image: csust/fusion_service:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./fusion_service:/app
+
+  predict_layer:
+    build:
+      context: ./predict_layer
+      dockerfile: Dockerfile
+    image: csust/predict_layer:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./predict_layer:/app
+    depends_on:
+      - single_service
+      - fusion_service
+
+  test_service:
+    build:
+      context: ./test_service
+      dockerfile: Dockerfile
+    image: csust/test_service:${VERSION}
+    env_file:
+      - ${ENV_FILE}
+    network_mode: host
+    volumes:
+      - ./test_service:/app

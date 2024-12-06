@@ -1,0 +1,22 @@
+import os
+# MINIO_ENDPOINT = "192.168.4.117:9000"
+# MINIO_ACCESS_KEY = "minio"
+# MINIO_SECRET_KEY = "miniosecret"
+# BUCKET_NAME = "power-prophet"
+
+MINIO_ENDPOINT = os.environ["MINIO_ENDPOINT"]
+MINIO_ACCESS_KEY = os.environ["MINIO_ACCESS_KEY"]
+MINIO_SECRET_KEY = os.environ["MINIO_SECRET_KEY"]
+BUCKET_NAME = os.environ["BUCKET_NAME"]
+
+MONGODB_HOST = os.environ["MONGODB_HOST"]
+MONGODB_PORT = int(os.environ["MONGODB_PORT"])
+
+REDIS_HOST = os.environ["REDIS_HOST"]
+REDIS_PORT = int(os.environ["REDIS_PORT"])
+
+
+DATA_SERVICE_URL = os.environ["DATA_SERVICE_URL"]
+SINGLE_MODEL_SERVICE_URL = os.environ["SINGLE_MODEL_URL"]
+
+USE_SINGLE_MODEL_THRESHOLD = True
